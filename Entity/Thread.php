@@ -40,6 +40,13 @@ class Thread
     private $author;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="author_name", type="string", length=255)
+     */
+    private $author_name;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="cdate", type="datetime")
@@ -446,5 +453,26 @@ class Thread
 
         return true;
     }
+
+    /**
+     * @return string
+     */
+    public function getAuthorName()
+    {
+        return $this->author_name;
+    }
+
+    /**
+     * @param string $author_name
+     * @return Thread
+     */
+    public function setAuthorName($author_name)
+    {
+        $this->author_name = $author_name;
+
+        return $this;
+    }
+
+
 
 }
