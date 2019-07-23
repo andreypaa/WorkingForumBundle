@@ -56,6 +56,20 @@ class Post
     private $userId;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=255)
+     */
+    private $user_name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_mail", type="string", length=255)
+     */
+    private $user_mail;
+
+    /**
      * @var UserInterface
      *
      * @ORM\ManyToOne(targetEntity="Yosimitso\WorkingForumBundle\Entity\User")
@@ -426,6 +440,42 @@ class Post
         $this->addSubscription = $addSubscription;
     }
 
+    /**
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->user_name;
+    }
 
+    /**
+     * @param string $user_name
+     * @return Post
+     */
+    public function setUserName($user_name)
+    {
+        $this->user_name = $user_name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserMail()
+    {
+        return $this->user_mail;
+    }
+
+    /**
+     * @param string $user_mail
+     * @return Post
+     */
+    public function setUserMail($user_mail)
+    {
+        $this->user_mail = $user_mail;
+
+        return$this;
+    }
 
 }
